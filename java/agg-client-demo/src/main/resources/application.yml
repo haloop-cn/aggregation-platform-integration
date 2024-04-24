@@ -1,0 +1,18 @@
+server:
+  port: 8899
+
+spring:
+  main:
+    banner-mode: off
+
+agg:
+  client:
+    enabled: true
+    endpoint: http://form-api-test.haloop.cn
+    app-key: BEa1yp1pE4X5TfKl
+    app-secret: xAZV3EcRKO71WNNaSzHbidSZjpemLgwL
+
+
+logging:
+  level:
+    cn.haloop.intg.client: debug
