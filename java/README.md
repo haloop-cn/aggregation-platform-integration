@@ -42,7 +42,7 @@ JSON library 作为序列化工具。
 ```
 
 在`agg-client-spring-boot-starter`中集成了`agg-serialization-spring-boot-starter`
-，以自动配置序列化器，目前仅实现了`jackson`的自动装配
+，以自动配置序列化器，目前实现了`jackson`、`fastjson2`、`gson`的自动装配
 
 ```java
 
@@ -56,7 +56,20 @@ public class AggSerializerFactoryAutoConfiguration {
     return new AggJacksonSerializerFactory();
   }
 
-  // TODO: 支持fastjson、gson
+
+  @Bean
+  @ConditionalOnClass(JSON.class)
+  @ConditionalOnMissingBean(AggSerializerFactory.class)
+  public AggSerializerFactory fastJson() {
+    return new AggFastJson2SerializerFactory();
+  }
+
+  @Bean
+  @ConditionalOnClass(Gson.class)
+  @ConditionalOnMissingBean(AggSerializerFactory.class)
+  public AggSerializerFactory gson() {
+    return new AggGsonSerializerFactory();
+  }
 
 }
 ```

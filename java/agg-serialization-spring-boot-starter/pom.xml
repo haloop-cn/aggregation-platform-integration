@@ -26,6 +26,10 @@
     </dependency>
     <dependency>
       <groupId>cn.haloop.intg</groupId>
+      <artifactId>agg-serialization-gson</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>cn.haloop.intg</groupId>
       <artifactId>agg-exchange</artifactId>
       <scope>provided</scope>
     </dependency>
@@ -37,6 +41,11 @@
     <dependency>
       <groupId>com.alibaba.fastjson2</groupId>
       <artifactId>fastjson2</artifactId>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.google.code.gson</groupId>
+      <artifactId>gson</artifactId>
       <scope>provided</scope>
     </dependency>
   </dependencies>
