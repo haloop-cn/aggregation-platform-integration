@@ -2,6 +2,8 @@ package cn.haloop.intg.serializer.starter;
 
 import cn.haloop.intg.serializer.AggJacksonSerializerFactory;
 import cn.haloop.intg.serializer.AggSerializerFactory;
+import cn.haloop.intg.serializer.modules.AggFastJson2SerializerFactory;
+import com.alibaba.fastjson2.JSON;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
@@ -21,4 +23,11 @@ public class AggSerializerFactoryAutoConfiguration {
     return new AggJacksonSerializerFactory();
   }
 
+
+  @Bean
+  @ConditionalOnClass(JSON.class)
+  @ConditionalOnMissingBean(AggSerializerFactory.class)
+  public AggSerializerFactory fastJson() {
+    return new AggFastJson2SerializerFactory();
+  }
 }
