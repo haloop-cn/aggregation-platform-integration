@@ -9,8 +9,8 @@ import cn.haloop.intg.collect.ClueUpdateResponse;
 import cn.haloop.intg.demo.builder.CluePushRequestBuilder;
 import cn.haloop.intg.demo.builder.ClueUpdateRequestBuilder;
 import cn.haloop.intg.demo.exception.BusinessException;
-import cn.haloop.intg.demo.model.Clue;
-import cn.haloop.intg.demo.model.RandomClue;
+import cn.haloop.intg.mock.Clue;
+import cn.haloop.intg.mock.RandomClue;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

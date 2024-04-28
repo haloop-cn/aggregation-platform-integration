@@ -2,8 +2,8 @@ package cn.haloop.intg.demo.builder;
 
 import cn.haloop.intg.collect.ClueCollection;
 import cn.haloop.intg.collect.ClueUpdateRequest;
-import cn.haloop.intg.demo.model.Clue;
 import cn.haloop.intg.enums.Gender;
+import cn.haloop.intg.mock.Clue;
 import lombok.RequiredArgsConstructor;
 
 /**

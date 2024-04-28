@@ -22,7 +22,7 @@ public class ClueCollection {
   /**
    * 是否实时推送
    */
-  private boolean realTimePush;
+  private Boolean realTimePush;
 
   /**
    * 指定接收线索的appCode

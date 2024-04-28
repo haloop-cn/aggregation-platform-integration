@@ -1,4 +1,4 @@
-package cn.haloop.intg.demo.model;
+package cn.haloop.intg.mock;
 
 import lombok.Getter;
 import lombok.Setter;

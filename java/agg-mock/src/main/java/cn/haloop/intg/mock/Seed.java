@@ -1,4 +1,4 @@
-package cn.haloop.intg.demo.model;
+package cn.haloop.intg.mock;
 
 import java.util.ArrayList;
 import java.util.List;

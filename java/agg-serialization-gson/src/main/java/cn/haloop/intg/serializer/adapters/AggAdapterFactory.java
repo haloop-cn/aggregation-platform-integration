@@ -23,11 +23,11 @@ public class AggAdapterFactory implements TypeAdapterFactory {
     if (String.class == type.getRawType()) {
       return (TypeAdapter<T>) new StringAdapter().nullSafe();
     }
-    if (Map.class == type.getRawType()) {
+    if (Map.class.isAssignableFrom(type.getRawType())) {
       TypeAdapter<Object> delegateAdapter = (TypeAdapter<Object>) gson.getDelegateAdapter(this, type).nullSafe();
       return (TypeAdapter<T>) new MapAdapter(delegateAdapter).nullSafe();
     }
-    if (Object[].class == type.getRawType()) {
+    if (Object[].class.isAssignableFrom(type.getRawType())) {
       TypeAdapter<Object[]> delegateAdapter = (TypeAdapter<Object[]>) gson.getDelegateAdapter(this, type).nullSafe();
       return (TypeAdapter<T>) new ArrayAdapter(delegateAdapter).nullSafe();
     }

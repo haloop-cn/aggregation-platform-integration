@@ -9,8 +9,11 @@ import com.alibaba.fastjson2.JSONWriter.Context;
 import com.alibaba.fastjson2.filter.Filter;
 import com.alibaba.fastjson2.modules.ObjectReaderModule;
 import com.alibaba.fastjson2.modules.ObjectWriterModule;
+import com.alibaba.fastjson2.reader.ObjectReader;
 import com.alibaba.fastjson2.reader.ObjectReaderProvider;
+import com.alibaba.fastjson2.writer.ObjectWriter;
 import com.alibaba.fastjson2.writer.ObjectWriterProvider;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -70,12 +73,22 @@ public class AggFastJson2Serializer implements AggSerializer {
       return new Builder();
     }
 
-    public Builder registry(ObjectWriterModule module) {
+    public Builder register(Type type, ObjectWriter<?> writer) {
+      writerProvider.register(type, writer);
+      return this;
+    }
+
+    public Builder register(Type type, ObjectReader<?> reader) {
+      readerProvider.register(type, reader);
+      return this;
+    }
+
+    public Builder register(ObjectWriterModule module) {
       writerProvider.register(module);
       return this;
     }
 
-    public Builder registry(ObjectReaderModule module) {
+    public Builder register(ObjectReaderModule module) {
       readerProvider.register(module);
       return this;
     }

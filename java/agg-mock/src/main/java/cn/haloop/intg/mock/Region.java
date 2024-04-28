@@ -1,4 +1,4 @@
-package cn.haloop.intg.demo.model;
+package cn.haloop.intg.mock;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;

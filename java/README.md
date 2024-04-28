@@ -86,4 +86,6 @@ public class AggSerializerFactoryAutoConfiguration {
 
 ## TODO
 
-- [ ] 支持fastjson、gson序列化器
+* [x] 支持fastjson、gson序列化器
+* [ ] 构建maven dependency，发布到maven中央仓库，[注册发布流程](https://central.sonatype.org/register/central-portal/) 
+  

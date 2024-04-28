@@ -3,7 +3,7 @@ package cn.haloop.intg.serializer.starter;
 import cn.haloop.intg.serializer.AggGsonSerializerFactory;
 import cn.haloop.intg.serializer.AggJacksonSerializerFactory;
 import cn.haloop.intg.serializer.AggSerializerFactory;
-import cn.haloop.intg.serializer.modules.AggFastJson2SerializerFactory;
+import cn.haloop.intg.serializer.AggFastJson2SerializerFactory;
 import com.alibaba.fastjson2.JSON;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;

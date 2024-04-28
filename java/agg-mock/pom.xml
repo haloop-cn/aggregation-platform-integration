@@ -9,13 +9,13 @@
     <version>1.0-SNAPSHOT</version>
   </parent>
 
-  <artifactId>agg-serialization-jackson</artifactId>
+  <artifactId>agg-mock</artifactId>
 
   <dependencies>
     <dependency>
-      <groupId>org.junit.jupiter</groupId>
-      <artifactId>junit-jupiter</artifactId>
-      <scope>test</scope>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <scope>compile</scope>
     </dependency>
     <dependency>
       <groupId>com.fasterxml.jackson.core</groupId>
@@ -23,19 +23,9 @@
       <scope>provided</scope>
     </dependency>
     <dependency>
-      <groupId>cn.haloop.intg</groupId>
-      <artifactId>agg-exchange</artifactId>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.projectlombok</groupId>
-      <artifactId>lombok</artifactId>
-      <scope>compile</scope>
-    </dependency>
-    <dependency>
-      <groupId>cn.haloop.intg</groupId>
-      <artifactId>agg-mock</artifactId>
-      <scope>test</scope>
+      <groupId>com.github.javafaker</groupId>
+      <artifactId>javafaker</artifactId>
     </dependency>
   </dependencies>
+
 </project>

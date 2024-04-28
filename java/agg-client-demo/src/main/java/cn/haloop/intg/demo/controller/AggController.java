@@ -1,8 +1,8 @@
 package cn.haloop.intg.demo.controller;
 
 import cn.haloop.intg.collect.ClueCollectionResponseData;
-import cn.haloop.intg.demo.model.Clue;
 import cn.haloop.intg.demo.service.AggService;
+import cn.haloop.intg.mock.Clue;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;

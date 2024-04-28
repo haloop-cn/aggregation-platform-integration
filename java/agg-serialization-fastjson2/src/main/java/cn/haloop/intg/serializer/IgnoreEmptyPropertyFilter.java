@@ -1,4 +1,4 @@
-package cn.haloop.intg.serializer.filters;
+package cn.haloop.intg.serializer;
 
 import com.alibaba.fastjson2.filter.PropertyFilter;
 import java.util.Collection;

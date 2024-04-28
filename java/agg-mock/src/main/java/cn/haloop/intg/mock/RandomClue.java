@@ -1,7 +1,7 @@
-package cn.haloop.intg.demo.model;
+package cn.haloop.intg.mock;
 
 
-import cn.haloop.intg.demo.model.Region.Division;
+import cn.haloop.intg.mock.Region.Division;
 import com.github.javafaker.Faker;
 import java.io.IOException;
 import java.util.Locale;
