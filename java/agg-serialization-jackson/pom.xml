@@ -6,11 +6,13 @@
   <parent>
     <groupId>io.github.haloopdev</groupId>
     <artifactId>agg-integration</artifactId>
-    <version>0.1.0</version>
+    <version>1.0.0</version>
     <relativePath>../pom.xml</relativePath>
   </parent>
 
   <artifactId>agg-serialization-jackson</artifactId>
+  <name>Agg Serializer (Jackson)</name>
+  <description>使用 Jackson 实现数据的序列化、反序列化</description>
 
   <dependencies>
     <dependency>

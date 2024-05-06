@@ -6,11 +6,13 @@
   <parent>
     <groupId>io.github.haloopdev</groupId>
     <artifactId>agg-integration</artifactId>
-    <version>0.1.0</version>
+    <version>1.0.0</version>
     <relativePath>../pom.xml</relativePath>
   </parent>
 
   <artifactId>agg-mock</artifactId>
+  <name>Agg Mock</name>
+  <description>用于测试环境创建 mock 数据</description>
 
   <dependencies>
     <dependency>

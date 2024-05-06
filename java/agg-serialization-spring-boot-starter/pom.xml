@@ -6,11 +6,13 @@
   <parent>
     <groupId>io.github.haloopdev</groupId>
     <artifactId>agg-integration</artifactId>
-    <version>0.1.0</version>
+    <version>1.0.0</version>
     <relativePath>../pom.xml</relativePath>
   </parent>
 
   <artifactId>agg-serialization-spring-boot-starter</artifactId>
+  <name>Agg Serializer Spring Boot Starter</name>
+  <description>通过检测当前环境支持的 JSON lib 来实现序列化、反序列化功能</description>
 
   <dependencies>
     <dependency>
