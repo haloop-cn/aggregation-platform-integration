@@ -8,7 +8,7 @@ import org.apache.commons.codec.digest.DigestUtils;
  * @author yangtuo
  */
 @RequiredArgsConstructor
-public class DefaultMD5AggDigester implements AggDigester {
+public class MD5AggDigester implements AggDigester {
 
   private final String appKey;
   private final String appSecret;
