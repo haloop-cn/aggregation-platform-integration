@@ -4,12 +4,15 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <groupId>cn.haloop.intg</groupId>
+    <groupId>io.github.haloopdev</groupId>
     <artifactId>agg-integration</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0.0</version>
+    <relativePath>../pom.xml</relativePath>
   </parent>
 
   <artifactId>agg-serialization-gson</artifactId>
+  <name>Agg Serializer (Gson)</name>
+  <description>使用 Gson 实现数据的序列化、反序列化</description>
 
   <dependencies>
     <dependency>
@@ -18,7 +21,7 @@
       <scope>provided</scope>
     </dependency>
     <dependency>
-      <groupId>cn.haloop.intg</groupId>
+      <groupId>io.github.haloopdev</groupId>
       <artifactId>agg-exchange</artifactId>
       <scope>provided</scope>
     </dependency>
@@ -33,7 +36,7 @@
       <scope>test</scope>
     </dependency>
     <dependency>
-      <groupId>cn.haloop.intg</groupId>
+      <groupId>io.github.haloopdev</groupId>
       <artifactId>agg-mock</artifactId>
       <scope>test</scope>
     </dependency>

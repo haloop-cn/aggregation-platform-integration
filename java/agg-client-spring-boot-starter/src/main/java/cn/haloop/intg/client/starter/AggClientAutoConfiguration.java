@@ -4,7 +4,7 @@ import cn.haloop.intg.client.AggClient;
 import cn.haloop.intg.client.AggClientConfiguration;
 import cn.haloop.intg.client.AggClientImpl;
 import cn.haloop.intg.client.digest.AggDigester;
-import cn.haloop.intg.client.digest.DefaultMD5AggDigester;
+import cn.haloop.intg.client.digest.MD5AggDigester;
 import cn.haloop.intg.serializer.AggSerializerFactory;
 import lombok.RequiredArgsConstructor;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -37,7 +37,7 @@ public class AggClientAutoConfiguration {
 
   @Bean
   public AggDigester digester() {
-    return new DefaultMD5AggDigester(config.getAppKey(), config.getAppSecret());
+    return new MD5AggDigester(config.getAppKey(), config.getAppSecret());
   }
 
   @Bean

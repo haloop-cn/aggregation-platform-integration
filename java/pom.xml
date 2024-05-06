@@ -4,9 +4,9 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>cn.haloop.intg</groupId>
+  <groupId>io.github.haloopdev</groupId>
   <artifactId>agg-integration</artifactId>
-  <version>1.0-SNAPSHOT</version>
+  <version>1.0.0</version>
   <packaging>pom</packaging>
 
 
@@ -30,22 +30,16 @@
     </developer>
   </developers>
 
-  <scm>
-    <connection>scm:git://github.com/haloop/agg-integration.git</connection>
-    <developerConnection>scm:git://github.com/haloop/agg-integration.git</developerConnection>
-    <url>https://github.com/haloop/agg-integration</url>
-  </scm>
+  <issueManagement>
+    <system>github</system>
+    <url>https://github.com/haloop-cn/aggregation-platform-integration/issues</url>
+  </issueManagement>
 
-  <distributionManagement>
-    <repository>
-      <id>ossrh</id>
-      <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-    </repository>
-    <snapshotRepository>
-      <id>ossrh</id>
-      <url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
-    </snapshotRepository>
-  </distributionManagement>
+  <scm>
+    <connection>scm:git://github.com/haloop-cn/aggregation-platform-integration.git</connection>
+    <developerConnection>scm:git://github.com/haloop-cn/aggregation-platform-integration.git</developerConnection>
+    <url>https://github.com/haloop-cn/aggregation-platform-integration.git</url>
+  </scm>
 
   <modules>
     <module>agg-exchange</module>
@@ -74,7 +68,7 @@
   <dependencyManagement>
     <dependencies>
       <dependency>
-        <groupId>cn.haloop.intg</groupId>
+        <groupId>io.github.haloopdev</groupId>
         <artifactId>agg-mock</artifactId>
         <version>${project.version}</version>
       </dependency>
@@ -99,27 +93,27 @@
         <version>${swagger.version}</version>
       </dependency>
       <dependency>
-        <groupId>cn.haloop.intg</groupId>
+        <groupId>io.github.haloopdev</groupId>
         <artifactId>agg-client-spring-boot-starter</artifactId>
         <version>${project.version}</version>
       </dependency>
       <dependency>
-        <groupId>cn.haloop.intg</groupId>
+        <groupId>io.github.haloopdev</groupId>
         <artifactId>agg-serialization-spring-boot-starter</artifactId>
         <version>${project.version}</version>
       </dependency>
       <dependency>
-        <groupId>cn.haloop.intg</groupId>
+        <groupId>io.github.haloopdev</groupId>
         <artifactId>agg-serialization-gson</artifactId>
         <version>${project.version}</version>
       </dependency>
       <dependency>
-        <groupId>cn.haloop.intg</groupId>
+        <groupId>io.github.haloopdev</groupId>
         <artifactId>agg-serialization-fastjson2</artifactId>
         <version>${project.version}</version>
       </dependency>
       <dependency>
-        <groupId>cn.haloop.intg</groupId>
+        <groupId>io.github.haloopdev</groupId>
         <artifactId>agg-serialization-jackson</artifactId>
         <version>${project.version}</version>
       </dependency>
@@ -141,7 +135,7 @@
         <version>${slf4j.version}</version>
       </dependency>
       <dependency>
-        <groupId>cn.haloop.intg</groupId>
+        <groupId>io.github.haloopdev</groupId>
         <artifactId>agg-client-sdk</artifactId>
         <version>${project.version}</version>
       </dependency>
@@ -156,7 +150,7 @@
         <version>${httpclient.version}</version>
       </dependency>
       <dependency>
-        <groupId>cn.haloop.intg</groupId>
+        <groupId>io.github.haloopdev</groupId>
         <artifactId>agg-exchange</artifactId>
         <version>${project.version}</version>
       </dependency>
@@ -218,6 +212,11 @@
           <artifactId>git-commit-id-maven-plugin</artifactId>
           <version>4.9.9</version>
         </plugin>
+        <plugin>
+          <groupId>org.sonatype.central</groupId>
+          <artifactId>central-publishing-maven-plugin</artifactId>
+          <version>0.4.0</version>
+        </plugin>
       </plugins>
     </pluginManagement>
   </build>
@@ -226,6 +225,22 @@
     <profile>
       <build>
         <plugins>
+          <plugin>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok-maven-plugin</artifactId>
+            <version>1.18.20.0</version>
+            <executions>
+              <execution>
+                <phase>generate-sources</phase>
+                <goals>
+                  <goal>delombok</goal>
+                </goals>
+                <configuration>
+                  <encoding>UTF-8</encoding>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-source-plugin</artifactId>
@@ -252,15 +267,16 @@
             </executions>
           </plugin>
           <plugin>
-            <groupId>org.sonatype.plugins</groupId>
-            <artifactId>nexus-staging-maven-plugin</artifactId>
-            <version>1.6.13</version>
-            <extensions>true</extensions>
-            <configuration>
-              <autoReleaseAfterClose>true</autoReleaseAfterClose>
-              <nexusUrl>https://s01.oss.sonatype.org/</nexusUrl>
-              <serverId>ossrh</serverId>
-            </configuration>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-javadoc-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>attach-javadocs</id>
+                <goals>
+                  <goal>jar</goal>
+                </goals>
+              </execution>
+            </executions>
           </plugin>
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
@@ -281,6 +297,15 @@
                 <phase>verify</phase>
               </execution>
             </executions>
+          </plugin>
+          <plugin>
+            <groupId>org.sonatype.central</groupId>
+            <artifactId>central-publishing-maven-plugin</artifactId>
+            <extensions>true</extensions>
+            <configuration>
+              <publishingServerId>central</publishingServerId>
+              <tokenAuth>true</tokenAuth>
+            </configuration>
           </plugin>
         </plugins>
       </build>
