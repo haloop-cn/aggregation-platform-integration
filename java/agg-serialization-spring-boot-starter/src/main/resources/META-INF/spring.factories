@@ -1,2 +1,4 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  cn.haloop.intg.serializer.starter.AggSerializerFactoryAutoConfiguration
+  cn.haloop.intg.serializer.starter.AggJacksonSerializerAutoConfiguration,\
+  cn.haloop.intg.serializer.starter.AggFastjson2SerializerAutoConfiguration,\
+  cn.haloop.intg.serializer.starter.AggGsonSerializerAutoConfiguration

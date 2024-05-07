@@ -41,6 +41,7 @@ public class AggClientAutoConfiguration {
   }
 
   @Bean
+  @ConditionalOnMissingBean(AggClient.class)
   @ConditionalOnProperty(prefix = "agg.client", name = "enabled", havingValue = "true")
   public AggClient create(CloseableHttpClient client, AggDigester digester) {
     AggClientConfiguration config = new AggClientConfiguration();
