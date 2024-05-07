@@ -12,6 +12,7 @@ import cn.haloop.intg.improve.ClueImproveResponse;
 import cn.haloop.intg.serializer.AggSerializer;
 import java.io.IOException;
 import java.net.URI;
+import java.net.URISyntaxException;
 import java.nio.charset.StandardCharsets;
 import lombok.RequiredArgsConstructor;
 import org.apache.http.StatusLine;
@@ -39,21 +40,22 @@ public class AggClientImpl implements AggClient {
 
 
   @Override
-  public CluePushResponse push(CluePushRequest request) throws Exception {
+  public CluePushResponse push(CluePushRequest request) throws URISyntaxException, IOException {
     return send(request, CluePushResponse.class);
   }
 
   @Override
-  public ClueUpdateResponse update(ClueUpdateRequest request) throws Exception {
+  public ClueUpdateResponse update(ClueUpdateRequest request) throws URISyntaxException, IOException {
     return send(request, ClueUpdateResponse.class);
   }
 
   @Override
-  public ClueImproveResponse improve(ClueImproveRequest request) throws Exception {
+  public ClueImproveResponse improve(ClueImproveRequest request) throws URISyntaxException, IOException {
     return send(request, ClueImproveResponse.class);
   }
 
-  private <R extends BaseResponse<?>> R send(BaseRequest<?> request, Class<R> clz) throws Exception {
+  private <R extends BaseResponse<?>> R send(BaseRequest<?> request, Class<R> clz)
+      throws URISyntaxException, IOException {
 
     URI target = new URIBuilder(config.getEndpoint())
         .setPathSegments(request.pathSegments())

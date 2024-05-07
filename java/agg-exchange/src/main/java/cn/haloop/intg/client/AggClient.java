@@ -6,6 +6,8 @@ import cn.haloop.intg.collect.ClueUpdateRequest;
 import cn.haloop.intg.collect.ClueUpdateResponse;
 import cn.haloop.intg.improve.ClueImproveRequest;
 import cn.haloop.intg.improve.ClueImproveResponse;
+import java.io.IOException;
+import java.net.URISyntaxException;
 
 /**
  * 数据推送接口
@@ -19,26 +21,23 @@ public interface AggClient {
    *
    * @param request 线索推送请求
    * @return 推送结果
-   * @throws Exception 推送异常
    */
-  CluePushResponse push(CluePushRequest request) throws Exception;
+  CluePushResponse push(CluePushRequest request) throws URISyntaxException, IOException;
 
   /**
    * 更新线索
    *
    * @param request 线索更新请求
    * @return 更新结果
-   * @throws Exception 更新异常
    */
-  ClueUpdateResponse update(ClueUpdateRequest request) throws Exception;
+  ClueUpdateResponse update(ClueUpdateRequest request) throws URISyntaxException, IOException;
 
   /**
    * 完善线索信息
    *
    * @param request 完善线索请求
    * @return 完善结果
-   * @throws Exception 完善异常
    */
-  ClueImproveResponse improve(ClueImproveRequest request) throws Exception;
+  ClueImproveResponse improve(ClueImproveRequest request) throws URISyntaxException, IOException;
 
 }
