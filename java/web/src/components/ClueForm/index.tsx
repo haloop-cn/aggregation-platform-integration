@@ -34,6 +34,7 @@ export type ClueData = {
   channelCode?: string
   subChannelCode?: string
   clueGrade?: string
+  ext?: Record<string, any>
 }
 
 type ClueFormProps = {
@@ -161,9 +162,50 @@ const ClueForm: React.FC<ClueFormProps> = ({onFinish, initialValues}) => {
                       </Form.Item>
                   )
               }
-
             </Col>
           </Row>
+
+          <Form.List name={["clueData", "ext"]}>
+            {(fields, { add, remove }) => (
+                <>
+                  {fields.map(({ key, name, fieldKey, ...restField }) => (
+                      <Row key={key} gutter={24}>
+                        <Col span={10}>
+                          <Form.Item
+                              {...restField}
+                              label="字段名"
+                              name={[name, 'key']}
+                              fieldKey={["ext", key, "key"]}
+                              rules={[{ required: true, message: '请输入字段名' }]}
+                          >
+                            <Input placeholder="字段名" />
+                          </Form.Item>
+                        </Col>
+                        <Col span={10}>
+                          <Form.Item
+                              {...restField}
+                              label="字段值"
+                              name={[name, 'value']}
+                              fieldKey={["ext", key, "value"]}
+                              rules={[{ required: true, message: '请输入字段值' }]}
+                          >
+                            <Input placeholder="字段值" />
+                          </Form.Item>
+                        </Col>
+                        <Col span={4}>
+                          <Button onClick={() => remove(name)}>删除</Button>
+                        </Col>
+                      </Row>
+                  ))}
+                  <Form.Item wrapperCol={{offset: 10, span: 20}}>
+                    <Button type="dashed" onClick={() => add()} block>
+                      添加扩展字段
+                    </Button>
+                  </Form.Item>
+                </>
+            )}
+          </Form.List>
+
           <Form.Item<SubmitData> wrapperCol={{offset: 10, span: 20}} name="submitType">
             <Radio.Group onChange={(e) => setSubmitType(e.target.value)} defaultValue={'create'}>
               <Radio value={"create"}>创建</Radio>

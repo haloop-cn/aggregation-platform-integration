@@ -2,9 +2,10 @@
 
 set -e
 
-workdir=$(pwd)
+workdir=$(pwd)/../
 
 echo "开始打包服务端..."
+cd "$workdir"
 mvn clean package
 
 cd web

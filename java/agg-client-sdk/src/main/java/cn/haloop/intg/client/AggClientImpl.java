@@ -82,7 +82,6 @@ public class AggClientImpl implements AggClient {
         .build();
 
     return client.execute(post, response -> {
-
       StatusLine sl = response.getStatusLine();
       String responseEntity = EntityUtils.toString(response.getEntity());
       int statusCode = sl.getStatusCode();
@@ -90,13 +89,8 @@ public class AggClientImpl implements AggClient {
         if (log.isDebugEnabled()) {
           log.debug("response: {}", responseEntity);
         }
-        R res = serializer.deserialize(responseEntity, clz);
-        if (!res.isSuccess()) {
-          throw AggMessageException.of(request.getRequestId(), res.getCode(), res.getMsg());
-        }
-        return res;
+        return serializer.deserialize(responseEntity, clz);
       }
-      log.error("request failed, status: {}, response: {}", statusCode, responseEntity);
       throw new IOException("request failed: " + sl);
     });
   }

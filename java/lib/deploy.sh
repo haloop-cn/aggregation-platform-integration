@@ -2,8 +2,9 @@
 
 set -e
 
-workdir=$(pwd)
+workdir=$(pwd)/../
 
+cd "$workdir"
 echo "正在打包服务端..."
 mvn clean package -Dmaven.test.skip=true
 

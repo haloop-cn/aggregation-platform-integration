@@ -16,7 +16,7 @@ import org.springframework.context.annotation.Configuration;
 @ConditionalOnMissingBean(AggSerializerFactory.class)
 public class AggFastjson2SerializerAutoConfiguration {
 
-  @Bean
+  @Bean(name = "aggFastJson2SerializerFactory")
   public AggSerializerFactory fastJson2() {
     return new AggFastJson2SerializerFactory();
   }
