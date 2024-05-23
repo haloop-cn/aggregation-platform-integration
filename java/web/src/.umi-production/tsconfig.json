@@ -27,7 +27,7 @@
         "src/.umi/*"
       ],
       "umi": [
-        "/Users/yangtuo/projects/agg-integration/web/node_modules/.pnpm/registry.npmjs.org+umi@4.1.10_@babel+core@7.24.4_@types+react@18.2.79_eslint@8.57.0_prettier@_eixifd7imh6rz66e5dsrxfkeqq/node_modules/umi"
+        "/Users/yangtuo/projects/form-aggregation-sdk/java/web/node_modules/.pnpm/registry.npmjs.org+umi@4.1.10_@babel+core@7.24.4_@types+react@18.2.79_eslint@8.57.0_prettier@_eixifd7imh6rz66e5dsrxfkeqq/node_modules/umi"
       ],
       "umi/typings": [
         "src/.umi/typings"

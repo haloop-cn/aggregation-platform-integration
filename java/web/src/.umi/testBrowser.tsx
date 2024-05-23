@@ -3,7 +3,7 @@
 // DO NOT CHANGE IT MANUALLY!
 import React, { useEffect, useState } from 'react';
 import { ApplyPluginsType } from 'umi';
-import { renderClient, RenderClientOpts } from '/Users/yangtuo/projects/agg-integration/web/node_modules/.pnpm/registry.npmjs.org+@umijs+renderer-react@4.1.10_react-dom@18.1.0_react@18.1.0/node_modules/@umijs/renderer-react';
+import { renderClient, RenderClientOpts } from '/Users/yangtuo/projects/form-aggregation-sdk/java/web/node_modules/.pnpm/registry.npmjs.org+@umijs+renderer-react@4.1.10_react-dom@18.1.0_react@18.1.0/node_modules/@umijs/renderer-react';
 import { createHistory } from './core/history';
 import { createPluginManager } from './core/plugin';
 import { getRoutes } from './core/route';

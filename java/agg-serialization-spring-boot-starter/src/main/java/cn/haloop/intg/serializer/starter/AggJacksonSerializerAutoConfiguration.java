@@ -16,7 +16,7 @@ import org.springframework.context.annotation.Configuration;
 @ConditionalOnMissingBean(AggSerializerFactory.class)
 public class AggJacksonSerializerAutoConfiguration {
 
-  @Bean
+  @Bean(name = "aggJacksonSerializerFactory")
   public AggSerializerFactory jackson() {
     return new AggJacksonSerializerFactory();
   }

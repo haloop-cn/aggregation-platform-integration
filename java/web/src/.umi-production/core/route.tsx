@@ -9,7 +9,7 @@ export async function getRoutes() {
     routes,
     routeComponents: {
 '1': React.lazy(() => import(/* webpackChunkName: "p__index" */'@/pages/index.tsx')),
-'@@/global-layout': React.lazy(() => import(/* webpackChunkName: "layouts__index" */'/Users/yangtuo/projects/agg-integration/web/src/layouts/index.tsx')),
+'@@/global-layout': React.lazy(() => import(/* webpackChunkName: "layouts__index" */'/Users/yangtuo/projects/form-aggregation-sdk/java/web/src/layouts/index.tsx')),
 },
   };
 }

@@ -40,6 +40,7 @@ public class ClueUpdateRequestBuilder {
     collection.setChannelCode(clue.getChannelCode());
     collection.setSubChannelCode(clue.getSubChannelCode());
     collection.setClueGrade(clue.getClueGrade());
+    collection.setExt(clue.getExt());
 
     return new ClueUpdateRequest(collection);
   }

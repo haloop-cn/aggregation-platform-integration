@@ -10,8 +10,22 @@ const Home = () => {
   const [response, setResponse] = React.useState<any>({})
 
   const onFinish = (value: SubmitData) => {
+
+    const ext = value.clueData.ext?.reduce((acc: Record<string, any>, field: any) => {
+      acc[field.key] = field.value;
+      return acc;
+    }, {});
+
+    const submitValue: SubmitData = {
+      ...value,
+      clueData: {
+        ...value.clueData,
+        ext,
+      },
+    };
+
     if (value.submitType === 'create') {
-      submitClue(value.clueData).then((res) => {
+      submitClue(submitValue.clueData).then((res) => {
         setResponse(res)
         return message.success('提交成功')
       }).catch((err) => {
@@ -21,7 +35,7 @@ const Home = () => {
     }
 
     if (value.submitType === 'update') {
-      updateClue(value.clueData).then((res) => {
+      updateClue(submitValue.clueData).then((res) => {
         setResponse(res)
         return message.success('更新成功')
       }).catch((err) => {
@@ -30,6 +44,7 @@ const Home = () => {
       })
     }
   }
+
 
 
   const onRandom = () => {
