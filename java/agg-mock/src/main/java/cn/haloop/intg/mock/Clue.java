@@ -1,5 +1,6 @@
 package cn.haloop.intg.mock;
 
+import java.util.List;
 import java.util.Map;
 import lombok.Getter;
 import lombok.Setter;
@@ -137,7 +138,24 @@ public class Clue {
   private String idCardNo;
 
   /**
+   * 产品编码
+   */
+  private String productCode;
+
+  /**
+   * 产品版本
+   */
+  private String productVersion;
+
+  /**
+   * 标签
+   */
+  private List<String> tags;
+
+
+  /**
    * 扩展字段
    */
   private Map<String, Object> ext;
+
 }
