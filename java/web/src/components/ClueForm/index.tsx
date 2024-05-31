@@ -34,6 +34,8 @@ export type ClueData = {
   channelCode?: string
   subChannelCode?: string
   clueGrade?: string
+  productCode?: string
+  productVersion?: string
   tags?: string[]
   ext?: Record<string, any>
 }
@@ -78,6 +80,12 @@ const ClueForm: React.FC<ClueFormProps> = ({onFinish, initialValues}) => {
         >
           <Row gutter={36}>
             <Col span={12}>
+              <Form.Item<SubmitData> label="产品编码" name={["clueData", "productCode"]}>
+                <Input/>
+              </Form.Item>
+              <Form.Item<SubmitData> label="产品版本" name={["clueData", "productVersion"]}>
+                <Input/>
+              </Form.Item>
               <Form.Item<SubmitData> label="姓名" name={["clueData", "customerName"]}>
                 <Input/>
               </Form.Item>
