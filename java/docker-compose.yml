@@ -6,7 +6,7 @@ services:
       dockerfile: Dockerfile
     environment:
       SERVER_PORT: "8080"
-      AGG_CLIENT_ENDPOINT: "http://192.168.5.232:8001"
+      AGG_CLIENT_ENDPOINT: "http://192.168.5.162:8001"
       AGG_CLIENT_APP_KEY: "ovfjnq76FyZnB9jz"
       AGG_CLIENT_APP_SECRET: "Yv1e-awhkeJVFEuJFffErStf2r_noL3A"
     networks:
