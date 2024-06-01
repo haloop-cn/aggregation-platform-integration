@@ -163,17 +163,17 @@ const ClueForm: React.FC<ClueFormProps> = ({onFinish, initialValues}) => {
                 />
               </Form.Item>
               {
-                  submitType === 'create' && (
-                      <Form.Item<SubmitData> label="是否实时推送" name={["clueData", "realTimePush"]}>
-                        <Switch checkedChildren='实时' unCheckedChildren='非实时' defaultValue={false} onChange={(e) => {
-                          setRealTimePush(e)
-                        }}/>
-                      </Form.Item>
-                  )
+                (
+                    <Form.Item<SubmitData> label="是否实时推送" name={["clueData", "realTimePush"]}>
+                      <Switch checkedChildren='实时' unCheckedChildren='非实时' defaultValue={false} onChange={(e) => {
+                        setRealTimePush(e)
+                      }}/>
+                    </Form.Item>
+                )
               }
 
               {
-                  submitType === 'create' && realTimePush && (
+                  realTimePush && (
                       <Form.Item label={"指定接收的机构appCode"} name={["clueData", "specifiedAppCode"]}>
                         <Input/>
                       </Form.Item>
