@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import {Button, Col, Form, Input, InputNumber, Radio, Row, Space, Switch} from "antd";
+import {Button, Col, Form, Input, InputNumber, Radio, Row, Select, Space, Switch} from "antd";
 
 
 type SubmitType = "create" | "update"
@@ -34,8 +34,12 @@ export type ClueData = {
   channelCode?: string
   subChannelCode?: string
   clueGrade?: string
+  productCode?: string
+  productVersion?: string
+  tags?: string[]
   ext?: Record<string, any>
 }
+
 
 type ClueFormProps = {
   onFinish: (values: SubmitData) => void
@@ -74,8 +78,14 @@ const ClueForm: React.FC<ClueFormProps> = ({onFinish, initialValues}) => {
             style={{maxWidth: 1000}}
             onFinish={onFinish}
         >
-          <Row gutter={24}>
+          <Row gutter={36}>
             <Col span={12}>
+              <Form.Item<SubmitData> label="产品编码" name={["clueData", "productCode"]}>
+                <Input/>
+              </Form.Item>
+              <Form.Item<SubmitData> label="产品版本" name={["clueData", "productVersion"]}>
+                <Input/>
+              </Form.Item>
               <Form.Item<SubmitData> label="姓名" name={["clueData", "customerName"]}>
                 <Input/>
               </Form.Item>
@@ -145,18 +155,25 @@ const ClueForm: React.FC<ClueFormProps> = ({onFinish, initialValues}) => {
               <Form.Item<SubmitData> label="线索等级" name={["clueData", "clueGrade"]}>
                 <Input/>
               </Form.Item>
+              <Form.Item<SubmitData> label="标签" name={["clueData", "tags"]}>
+                <Select
+                    mode={"tags"}
+                    placeholder={"请输入标签"}
+                    open={false}
+                />
+              </Form.Item>
               {
-                  submitType === 'create' && (
-                      <Form.Item<SubmitData> label="是否实时推送" name={["clueData", "realTimePush"]}>
-                        <Switch checkedChildren='实时' unCheckedChildren='非实时' defaultValue={false} onChange={(e) => {
-                          setRealTimePush(e)
-                        }}/>
-                      </Form.Item>
-                  )
+                (
+                    <Form.Item<SubmitData> label="是否实时推送" name={["clueData", "realTimePush"]}>
+                      <Switch checkedChildren='实时' unCheckedChildren='非实时' defaultValue={false} onChange={(e) => {
+                        setRealTimePush(e)
+                      }}/>
+                    </Form.Item>
+                )
               }
 
               {
-                  submitType === 'create' && realTimePush && (
+                  realTimePush && (
                       <Form.Item label={"指定接收的机构appCode"} name={["clueData", "specifiedAppCode"]}>
                         <Input/>
                       </Form.Item>
@@ -166,9 +183,9 @@ const ClueForm: React.FC<ClueFormProps> = ({onFinish, initialValues}) => {
           </Row>
 
           <Form.List name={["clueData", "ext"]}>
-            {(fields, { add, remove }) => (
+            {(fields, {add, remove}) => (
                 <>
-                  {fields.map(({ key, name, fieldKey, ...restField }) => (
+                  {fields.map(({key, name, fieldKey, ...restField}) => (
                       <Row key={key} gutter={24}>
                         <Col span={10}>
                           <Form.Item
@@ -176,9 +193,9 @@ const ClueForm: React.FC<ClueFormProps> = ({onFinish, initialValues}) => {
                               label="字段名"
                               name={[name, 'key']}
                               fieldKey={["ext", key, "key"]}
-                              rules={[{ required: true, message: '请输入字段名' }]}
+                              rules={[{required: true, message: '请输入字段名'}]}
                           >
-                            <Input placeholder="字段名" />
+                            <Input placeholder="字段名"/>
                           </Form.Item>
                         </Col>
                         <Col span={10}>
@@ -187,9 +204,9 @@ const ClueForm: React.FC<ClueFormProps> = ({onFinish, initialValues}) => {
                               label="字段值"
                               name={[name, 'value']}
                               fieldKey={["ext", key, "value"]}
-                              rules={[{ required: true, message: '请输入字段值' }]}
+                              rules={[{required: true, message: '请输入字段值'}]}
                           >
-                            <Input placeholder="字段值" />
+                            <Input placeholder="字段值"/>
                           </Form.Item>
                         </Col>
                         <Col span={4}>
