@@ -33,5 +33,5 @@ rm -f agg-integration-server.tar
 rm -f agg-integration-web.tar
 
 echo "正在部署服务..."
-ssh remote "cd ~/agg && docker load -i agg-integration-server.tar && docker load -i agg-integration-web.tar && docker-compose up -d"
+ssh remote "cd ~/agg && docker load -i agg-integration-server.tar && docker load -i agg-integration-web.tar && docker-compose -f docker-compose.yml.test up -d"
 

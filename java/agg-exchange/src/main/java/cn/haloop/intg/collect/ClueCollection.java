@@ -1,6 +1,7 @@
 package cn.haloop.intg.collect;
 
 import cn.haloop.intg.enums.Gender;
+import java.util.List;
 import java.util.Map;
 import lombok.Getter;
 import lombok.Setter;
@@ -135,7 +136,23 @@ public class ClueCollection {
   private String clueGrade;
 
   /**
+   * 产品编码
+   */
+  private String productCode;
+
+  /**
+   * 产品版本
+   */
+  private String productVersion;
+
+  /**
+   * 标签
+   */
+  private List<String> tags;
+
+  /**
    * 扩展字段
    */
   private Map<String, Object> ext;
+
 }
