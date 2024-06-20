@@ -43,6 +43,7 @@ public class ClueUpdateRequestBuilder {
     collection.setProductCode(clue.getProductCode());
     collection.setProductVersion(clue.getProductVersion());
     collection.setTags(clue.getTags());
+    collection.setUseType(clue.getUseType());
     collection.setExt(clue.getExt());
 
     return new ClueUpdateRequest(collection);

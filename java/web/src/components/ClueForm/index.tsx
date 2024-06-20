@@ -37,6 +37,7 @@ export type ClueData = {
   productCode?: string
   productVersion?: string
   tags?: string[]
+  useType?: number
   ext?: Record<string, any>
 }
 
@@ -179,6 +180,13 @@ const ClueForm: React.FC<ClueFormProps> = ({onFinish, initialValues}) => {
                       </Form.Item>
                   )
               }
+              <Form.Item<SubmitData> label="线索用途" name={["clueData", "useType"]}>
+                <Radio.Group>
+                  <Radio value={0}>未知</Radio>
+                  <Radio value={1}>正式</Radio>
+                  <Radio value={2}>测试</Radio>
+                </Radio.Group>
+              </Form.Item>
             </Col>
           </Row>
 
