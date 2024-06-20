@@ -152,6 +152,10 @@ public class Clue {
    */
   private List<String> tags;
 
+  /**
+   * 线索用途：1-正式 2-测试
+   */
+  private Integer useType;
 
   /**
    * 扩展字段

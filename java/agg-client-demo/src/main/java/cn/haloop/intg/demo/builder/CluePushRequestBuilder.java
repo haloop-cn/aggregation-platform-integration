@@ -42,6 +42,7 @@ public class CluePushRequestBuilder {
     collection.setProductCode(clue.getProductCode());
     collection.setProductVersion(clue.getProductVersion());
     collection.setTags(clue.getTags());
+    collection.setUseType(clue.getUseType());
     collection.setExt(clue.getExt());
 
     return new CluePushRequest(collection);
